@@ -1,0 +1,48 @@
+name: market
+
+# 索引仓的 CI 只干两件事，别加花活：
+#   1. 包/元数据本身合不合规（meta 必填项、category 受控表、图标截图存在、目录名与包内
+#      manifest 一致……）——不合规直接红，不往下走。
+#   2. index.json 与 plugins/ 同步。PR 上「改了包没重建索引」= 红；push 到 main 上
+#      则由 CI 重建并提交回去，这样发包只要「提交 .hpk + meta.json」一步，
+#      raw 地址立刻生效。
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # 校验 + 重建一体：包有问题时退出码非 0，索引写到工作区
+      - name: 校验包与元数据并重建索引
+        run: python3 scripts/build_index.py
+
+      # PR：索引必须已经提交在仓库里，不能靠 CI 兜底
+      - name: PR 上索引必须已提交
+        if: github.event_name == 'pull_request'
+        run: git diff --exit-code -- index.json
+
+      - name: main 上有变化就提交回仓库
+        if: github.event_name == 'push'
+        run: |
+          if git diff --quiet -- index.json; then
+            echo "index.json 无变化"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.json
+          git commit -m "chore: 重建 index.json"
+          git push

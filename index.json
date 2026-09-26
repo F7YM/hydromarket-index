@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "generated_at": "2026-09-26T14:25:47Z",
+  "plugins": [
+    {
+      "id": "com.hydro.deskbuddy",
+      "name": "桌搭",
+      "author": "HydroLink",
+      "version": "0.9.0",
+      "runtime": "js",
+      "entry": "server.js",
+      "min_hydrolink": "",
+      "permissions": [
+        "music",
+        "storage"
+      ],
+      "description": "正在播放的圆屏界面：模糊专辑封面铺底，顶部时钟，左侧封面，右侧歌名/歌手/歌词。可选接入 SPlayer 歌词（连本机 ws://127.0.0.1:25885），开关、端口与外观（字号/模糊/暗化）都能在插件界面里调，改完下次刷新生效。",
+      "category": "utility",
+      "icon": "plugins/com.hydro.deskbuddy/0.9.0/icon.png",
+      "url": "plugins/com.hydro.deskbuddy/0.9.0/com.hydro.deskbuddy.hpk",
+      "sha256": "e39400db02ffa498fca7090738275bb0e6035121b06f91c4a7916af486b4ff8f",
+      "size": 12985,
+      "keywords": [
+        "音乐",
+        "歌词",
+        "封面",
+        "桌搭",
+        "SPlayer"
+      ]
+    }
+  ]
+}
