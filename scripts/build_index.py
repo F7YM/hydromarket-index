@@ -25,6 +25,7 @@
 from __future__ import annotations
 
 import argparse
+import calendar
 import hashlib
 import json
 import sys
@@ -39,6 +40,7 @@ ICON_MAX_BYTES = 256 * 1024
 SCREENSHOT_MAX_BYTES = 2 * 1024 * 1024
 SCREENSHOTS_MAX = 5
 KEYWORDS_MAX = 8
+NOTES_MAX = 500
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PLUGINS_DIR = REPO_ROOT / "plugins"
@@ -230,6 +232,13 @@ def build_entry(pkg_dir: Path, errors: list[str]) -> dict | None:
         _fail(errors, f"{rel_dir}/meta.json: keywords 最多 {KEYWORDS_MAX} 个")
         return None
 
+    # notes = 本版本的更新日志（可选）。客户端的「插件更新」弹窗会显示它，
+    # 所以按「这一版相对上一版改了什么」来写，不要写整段历史。
+    notes = str(meta.get("notes") or "").strip()
+    if len(notes) > NOTES_MAX:
+        _fail(errors, f"{rel_dir}/meta.json: notes 超 {NOTES_MAX} 字（现在 {len(notes)}）")
+        return None
+
     entry = {
         "id": pid,
         "name": name,
@@ -254,6 +263,8 @@ def build_entry(pkg_dir: Path, errors: list[str]) -> dict | None:
         entry["keywords"] = keywords
     if screenshots:
         entry["screenshots"] = screenshots
+    if notes:
+        entry["notes"] = notes
     return entry
 
 
@@ -272,27 +283,45 @@ def collect() -> tuple[dict, list[str]]:
             by_id.setdefault(entry["id"], []).append(entry)
 
     latest: list[dict] = []
-    newest_mtime = 0.0
+    newest = 0.0
     for pid, entries in sorted(by_id.items()):
-        newest = entries[0]
+        newest_entry = entries[0]
         for candidate in entries[1:]:
-            if compare_versions(candidate["version"], newest["version"]) > 0:
-                newest = candidate
-        latest.append(newest)
-        for entry in entries:
-            newest_mtime = max(newest_mtime, (REPO_ROOT / entry["url"]).stat().st_mtime)
+            if compare_versions(candidate["version"], newest_entry["version"]) > 0:
+                newest_entry = candidate
+        latest.append(newest_entry)
+        newest = max(newest, package_stamp(REPO_ROOT / newest_entry["url"]))
 
     import datetime
 
     stamp = (
-        datetime.datetime.fromtimestamp(newest_mtime, datetime.timezone.utc)
+        datetime.datetime.fromtimestamp(newest, datetime.timezone.utc)
         .replace(microsecond=0)
         .isoformat()
         .replace("+00:00", "Z")
-        if newest_mtime
+        if newest
         else ""
     )
     return {"schema": SCHEMA, "generated_at": stamp, "plugins": latest}, errors
+
+
+def package_stamp(hpk: Path) -> float:
+    """包内最新条目时间（POSIX 秒）。
+
+    刻意**不用文件 mtime**：CI 是全新 checkout，mtime 就是「跑 CI 的那一刻」，于是
+    `generated_at` 每次都变 → 每次 push 都多一个只改时间戳的重建提交（真发生过一次），
+    索引 diff 也就失去了「内容真的变了」的信号。包内 zip 条目的时间是打包时刻，
+    任何机器 clone 都一样。
+    """
+    try:
+        with zipfile.ZipFile(hpk) as zf:
+            times = [info.date_time for info in zf.infolist() if info.date_time[0] >= 1980]
+        if not times:
+            return 0.0
+        y, mo, d, h, mi, s = max(times)
+        return calendar.timegm((y, mo, d, h, mi, s, 0, 0, 0))
+    except (zipfile.BadZipFile, OSError):
+        return 0.0
 
 
 def render(index: dict) -> str:
