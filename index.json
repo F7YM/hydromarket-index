@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-19T13:45:00Z",
+  "generated_at": "2026-09-27T14:48:04Z",
   "plugins": [
     {
       "id": "com.hydro.deskbuddy",
@@ -28,6 +28,36 @@
         "SPlayer"
       ],
       "notes": "首个上架版本：模糊封面铺底 + 顶部时钟 + 左侧封面 + 右侧歌名/歌手/歌词；可选接入 SPlayer 歌词（连本机 25885 端口），歌词集成开启时 0.5s 刷新、关闭时 3s 刷新。"
+    },
+    {
+      "id": "com.hydro.musicfox",
+      "name": "MusicFox 歌词",
+      "author": "@云里是个太阳",
+      "version": "0.8.0",
+      "runtime": "js",
+      "entry": "server.js",
+      "min_hydrolink": "1.0.0",
+      "permissions": [
+        "storage",
+        "music",
+        "commands"
+      ],
+      "description": "手表「设备信息页 → 组件卡片」里的歌词卡：第一行居中显示歌名和歌手（一行放不下就自动换行、每行居中），中间是当前歌词和上下各两行（超长换行不省略），最下一横是只显示的进度条。歌词与进度取自 Fedora KDE 的系统媒体组件（MPRIS），需要先在宿主里配一条 playerctl 命令；字号、颜色、行数、提前量都能在电脑端的插件界面里调。",
+      "category": "utility",
+      "icon": "plugins/com.hydro.musicfox/0.8.0/logo.png",
+      "url": "plugins/com.hydro.musicfox/0.8.0/com.hydro.musicfox.hpk",
+      "sha256": "0ee7d3a00f5fd10be73a491b110e0e02db9c279ebb97d577cea3ae306a3042fa",
+      "size": 17807,
+      "homepage": "https://float11.gitbook.io/hydrokit",
+      "keywords": [
+        "歌词",
+        "音乐",
+        "MusicFox",
+        "MPRIS",
+        "playerctl",
+        "手表歌词"
+      ],
+      "notes": "首个上架版本：卡片式歌词（当前行 + 上下各两行；字号/颜色/行数可调）+ 居中的歌名·歌手（自适应宽度，一行放不下自动换行）+ 底部按屏宽自适应的方块进度条；支持毫秒级「提前显示」校准链路延迟；兼容 deskclock 那条老命令；已在小米手环 336×480 与桌面宿主上实测。"
     }
   ]
 }
