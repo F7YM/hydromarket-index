@@ -1,36 +1,35 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-01T08:50:14Z",
+  "generated_at": "2026-10-01T17:47:24Z",
   "plugins": [
     {
       "id": "com.SunPM.WakeOL",
       "name": "WakeOnLine",
       "author": "@云里是个太阳",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "runtime": "js",
       "entry": "server.js",
       "min_hydrolink": "1.0.0",
       "permissions": [
         "storage",
-        "fetch"
+        "wol"
       ],
-      "description": "手表上点一下就把电脑开机。插件本身发不了 UDP 广播，所以用一个常开的手机当「中继」：手机装 Termux，把插件界面里的一键命令粘进去（自动装 python、写脚本、拿 wakelock、带自动重启），插件里再填「名字 + MAC + 目标 IP」就能用。手表卡片上每台电脑一行：●在线 / ○离线 徽标 + 名字 + 唤醒按钮；App 页有逐台「唤醒 / 检测」和「全部检测」。在线检测先 ping（不关心它开了哪个端口），ping 不通再试常见端口；唤醒后 45 秒自动复检，不会出现「刚点完就显示离线」。权限只要 storage + fetch。",
+      "description": "手表上点一下就把电脑开机。魔术包由 HydroKit 的 wol 接口直接发出（插件权限里的 wol 就是它），不用装 Termux、不用中继、不用在电脑上开任何程序。插件里只需填「名字 + MAC」，想在手表中看到在线状态再填「目标 IP」。手表卡片上每台电脑一行：●在线 / ○离线 徽标 + 名字 + 唤醒按钮；App 页有逐台「唤醒 / 检测」和「全部检测」。在线探测优先走 ICMP，目标挡 ICMP 时可填一个 TCP 端口（22 / 3389）走握手，判定更准；唤醒后 45 秒自动复检，不会出现「刚点完就显示离线」。权限只有 storage + wol。",
       "category": "utility",
-      "icon": "plugins/com.SunPM.WakeOL/0.3.0/icon.png",
-      "url": "plugins/com.SunPM.WakeOL/0.3.0/com.SunPM.WakeOL.hpk",
-      "sha256": "c63ad57925cb37e8333e141d3b43eb94d372fc45b2e7a9073e66b308cfee1601",
-      "size": 30495,
+      "icon": "plugins/com.SunPM.WakeOL/0.4.0/icon.png",
+      "url": "plugins/com.SunPM.WakeOL/0.4.0/com.SunPM.WakeOL.hpk",
+      "sha256": "da7d8dd74aa4b0c15c23c26418a64a6b65aa2aaa17a58a753a58c39e56e85f07",
+      "size": 21666,
       "homepage": "https://float11.gitbook.io/hydrokit",
       "keywords": [
         "网络唤醒",
         "Wake-on-LAN",
         "WoL",
         "开机",
-        "Termux",
-        "中继",
-        "魔术包"
+        "魔术包",
+        "局域网"
       ],
-      "notes": "首个上架版本。中继脚本零依赖（只用 Python 标准库），Termux / 树莓派 / NAS / 另一台常开电脑都能跑；支持多台目标，广播地址和 WoL 端口可改；在线检测 ping 优先、端口兜底，3 秒内一定回话；唤醒后自动复检延迟可调（默认 45 秒）。"
+      "notes": "首个上架版本（0.4.0）。基于 HydroKit 的 wol 接口：宿主自己发魔术包，安卓端自动持 MulticastLock，电脑关着也能唤醒。支持多台目标、自定义广播地址与 WoL 端口；在线探测 ICMP 优先、也可指定 TCP 端口走握手；唤醒后自动复检延迟可调（默认 45 秒）。插件界面里带完整说明和「试一下 / 探测」按钮。"
     },
     {
       "id": "com.hydro.deskbuddy",
