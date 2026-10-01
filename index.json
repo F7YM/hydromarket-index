@@ -1,37 +1,7 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-01T08:50:14Z",
+  "generated_at": "2026-10-01T18:22:10Z",
   "plugins": [
-    {
-      "id": "com.SunPM.WakeOL",
-      "name": "WakeOnLine",
-      "author": "@云里是个太阳",
-      "version": "0.3.0",
-      "runtime": "js",
-      "entry": "server.js",
-      "min_hydrolink": "1.0.0",
-      "permissions": [
-        "storage",
-        "fetch"
-      ],
-      "description": "手表上点一下就把电脑开机。插件本身发不了 UDP 广播，所以用一个常开的手机当「中继」：手机装 Termux，把插件界面里的一键命令粘进去（自动装 python、写脚本、拿 wakelock、带自动重启），插件里再填「名字 + MAC + 目标 IP」就能用。手表卡片上每台电脑一行：●在线 / ○离线 徽标 + 名字 + 唤醒按钮；App 页有逐台「唤醒 / 检测」和「全部检测」。在线检测先 ping（不关心它开了哪个端口），ping 不通再试常见端口；唤醒后 45 秒自动复检，不会出现「刚点完就显示离线」。权限只要 storage + fetch。",
-      "category": "utility",
-      "icon": "plugins/com.SunPM.WakeOL/0.3.0/icon.png",
-      "url": "plugins/com.SunPM.WakeOL/0.3.0/com.SunPM.WakeOL.hpk",
-      "sha256": "c63ad57925cb37e8333e141d3b43eb94d372fc45b2e7a9073e66b308cfee1601",
-      "size": 30495,
-      "homepage": "https://float11.gitbook.io/hydrokit",
-      "keywords": [
-        "网络唤醒",
-        "Wake-on-LAN",
-        "WoL",
-        "开机",
-        "Termux",
-        "中继",
-        "魔术包"
-      ],
-      "notes": "首个上架版本。中继脚本零依赖（只用 Python 标准库），Termux / 树莓派 / NAS / 另一台常开电脑都能跑；支持多台目标，广播地址和 WoL 端口可改；在线检测 ping 优先、端口兜底，3 秒内一定回话；唤醒后自动复检延迟可调（默认 45 秒）。"
-    },
     {
       "id": "com.hydro.deskbuddy",
       "name": "桌搭",
@@ -88,6 +58,36 @@
         "手表歌词"
       ],
       "notes": "首个上架版本：卡片式歌词（当前行 + 上下各两行；字号/颜色/行数可调）+ 居中的歌名·歌手（自适应宽度，一行放不下自动换行）+ 底部按屏宽自适应的方块进度条；支持毫秒级「提前显示」校准链路延迟；兼容 deskclock 那条老命令；已在小米手环 336×480 与桌面宿主上实测。"
+    },
+    {
+      "id": "com.sunpm.wakeol",
+      "name": "WakeOnLine",
+      "author": "@云里是个太阳",
+      "version": "0.4.0",
+      "runtime": "js",
+      "entry": "server.js",
+      "min_hydrolink": "1.0.0",
+      "permissions": [
+        "storage",
+        "wol",
+        "udp"
+      ],
+      "description": "手表上点一下就把电脑开机。魔术包由 HydroKit 的 wol 接口直接发出（插件权限里的 wol 就是它），不用装 Termux、不用中继。插件里只需填「名字 + MAC」，想在手表中看到在线状态再填「目标 IP」。手表卡片上每台电脑一行：●在线 / ○离线 徽标 + 名字 + 唤醒按钮；App 页有逐台「唤醒 / 检测」和「全部检测」。在线探测优先走 ICMP，目标挡 ICMP 时可填一个 TCP 端口（22 / 3389）走握手，判定更准；唤醒后 45 秒自动复检，不会出现「刚点完就显示离线」。权限只有 storage + wol + udp（都是本地能力）。",
+      "category": "utility",
+      "icon": "plugins/com.sunpm.wakeol/0.4.0/icon.png",
+      "url": "plugins/com.sunpm.wakeol/0.4.0/com.sunpm.wakeol.hpk",
+      "sha256": "7421c5f670c4247e64ead5e329fd3530091ebb3e365a22fefa666483077e3fd5",
+      "size": 22206,
+      "homepage": "https://float11.gitbook.io/hydrokit",
+      "keywords": [
+        "网络唤醒",
+        "Wake-on-LAN",
+        "WoL",
+        "开机",
+        "魔术包",
+        "局域网"
+      ],
+      "notes": "0.4.0：改用 HydroKit 官方 wol 接口，不再需要中转——删掉了 Termux 中继脚本和一键安装命令，装上就能用。手表点一下就把电脑开机，魔术包由宿主自己发，电脑关着的时候也能唤醒它。支持多台目标、自定义广播地址与 WoL 端口；在线探测 ICMP 优先、也可指定 TCP 端口走握手；唤醒后自动复检延迟可调（默认 45 秒）。安卓宿主若缺 CHANGE_WIFI_MULTICAST_STATE 权限，插件会自动改用 UDP 直发兜底。包名统一改成全小写 com.sunpm.wakeol。"
     }
   ]
 }
