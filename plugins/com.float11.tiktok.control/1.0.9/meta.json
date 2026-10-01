@@ -1,0 +1,7 @@
+{
+  "description": "在手表上遥控手机刷抖音，支持上下滑动切换视频、点赞、播放/暂停。手机端需先为 HydroLink 开启无障碍权限或授予 Shizuku/Root 权限，否则无法控制设备。",
+  "category": "utility",
+  "icon": "icon.png",
+  "keywords": ["抖音", "遥控"],
+  "notes": "1.0.9：首个上架版本。"
+}

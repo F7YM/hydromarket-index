@@ -1,7 +1,30 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-01T18:22:10Z",
+  "generated_at": "2026-10-01T19:05:16Z",
   "plugins": [
+    {
+      "id": "com.float11.tiktok.control",
+      "name": "抖音控制器",
+      "author": "float11",
+      "version": "1.0.9",
+      "runtime": "js",
+      "entry": "server.js",
+      "min_hydrolink": "",
+      "permissions": [
+        "input"
+      ],
+      "description": "在手表上遥控手机刷抖音，支持上下滑动切换视频、点赞、播放/暂停。手机端需先为 HydroLink 开启无障碍权限或授予 Shizuku/Root 权限，否则无法控制设备。",
+      "category": "utility",
+      "icon": "plugins/com.float11.tiktok.control/1.0.9/icon.png",
+      "url": "plugins/com.float11.tiktok.control/1.0.9/com.float11.tiktok.control.hpk",
+      "sha256": "815b8451034bcd8dd5f3b1f5a6d2b69bef239c9ee43491103267a201b92d35ff",
+      "size": 5107,
+      "keywords": [
+        "抖音",
+        "遥控"
+      ],
+      "notes": "1.0.9：首个上架版本。"
+    },
     {
       "id": "com.hydro.deskbuddy",
       "name": "桌搭",
