@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-01T17:47:24Z",
+  "generated_at": "2026-10-01T17:49:44Z",
   "plugins": [
     {
       "id": "com.SunPM.WakeOL",
@@ -18,8 +18,8 @@
       "category": "utility",
       "icon": "plugins/com.SunPM.WakeOL/0.4.0/icon.png",
       "url": "plugins/com.SunPM.WakeOL/0.4.0/com.SunPM.WakeOL.hpk",
-      "sha256": "da7d8dd74aa4b0c15c23c26418a64a6b65aa2aaa17a58a753a58c39e56e85f07",
-      "size": 21666,
+      "sha256": "69e6464d5bdebabc8b73b2858117f70e4dbd9097c27281c283690e09ee061ba1",
+      "size": 21705,
       "homepage": "https://float11.gitbook.io/hydrokit",
       "keywords": [
         "网络唤醒",
