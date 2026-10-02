@@ -31,5 +31,6 @@
   },
   "download_url": "https://pan.quark.cn/s/833b6e7cad7a",
   "backup_url": "",
-  "password": ""
+  "password": "",
+  "force": true
 }
