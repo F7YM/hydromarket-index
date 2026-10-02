@@ -1,0 +1,14 @@
+{
+  "version": "1.2.0",
+  "version_code": 12,
+  "publish_date": "2026-10-02",
+  "title": "HydroLink v1.2.0",
+  "changelog": [
+    "新增：App 自动检查更新与网盘分发支持",
+    "优化：插件市场弹窗规范与按钮强调色",
+    "修复：若干已知体验问题"
+  ],
+  "download_url": "https://www.123pan.com/",
+  "backup_url": "",
+  "password": ""
+}
