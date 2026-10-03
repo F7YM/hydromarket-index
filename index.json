@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-01T19:05:16Z",
+  "generated_at": "2026-10-03T14:56:12Z",
   "plugins": [
     {
       "id": "com.float11.tiktok.control",
       "name": "抖音控制器",
       "author": "float11",
-      "version": "1.0.9",
+      "version": "1.1.0",
       "runtime": "js",
       "entry": "server.js",
       "min_hydrolink": "",
@@ -15,15 +15,15 @@
       ],
       "description": "在手表上遥控手机刷抖音，支持上下滑动切换视频、点赞、播放/暂停。手机端需先为 HydroLink 开启无障碍权限或授予 Shizuku/Root 权限，否则无法控制设备。",
       "category": "utility",
-      "icon": "plugins/com.float11.tiktok.control/1.0.9/icon.png",
-      "url": "plugins/com.float11.tiktok.control/1.0.9/com.float11.tiktok.control.hpk",
-      "sha256": "815b8451034bcd8dd5f3b1f5a6d2b69bef239c9ee43491103267a201b92d35ff",
-      "size": 5107,
+      "icon": "plugins/com.float11.tiktok.control/1.1.0/icon.png",
+      "url": "plugins/com.float11.tiktok.control/1.1.0/com.float11.tiktok.control.hpk",
+      "sha256": "3f365633c9acf6cd17d8301e951820f88d6dbe0ad2f265de8e2eb24c50f76c56",
+      "size": 4901,
       "keywords": [
         "抖音",
         "遥控"
       ],
-      "notes": "1.0.9：首个上架版本。"
+      "notes": "1.1.0：移除小部件卡片，专注手表全屏控制器。"
     },
     {
       "id": "com.hydro.deskbuddy",
