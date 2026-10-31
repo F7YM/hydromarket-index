@@ -15,7 +15,7 @@
         "fetch",
         "notify"
       ],
-      "description": "在手表上连接并控制 OpenCode（对接 OpenCode V2）。支持查看与切换会话、浏览对话与工具调用记录、审批或拒绝权限请求、发送指令、切换主 Agent 以及在任务完成或需审批时向宿主发送通知提醒。",
+      "description": "在手表上连接并控制 OpenCode 智能编程助手（对接 OpenCode V2 HTTP API）。支持查看与切换会话、浏览对话与工具调用记录、审批或拒绝权限请求、发送指令、切换主 Agent 以及在任务完成或需审批时向宿主发送通知提醒。",
       "category": "utility",
       "icon": "plugins/com.float11.opencode.ctrl/1.0.1/icon.png",
       "url": "plugins/com.float11.opencode.ctrl/1.0.1/com.float11.opencode.ctrl.hpk",
