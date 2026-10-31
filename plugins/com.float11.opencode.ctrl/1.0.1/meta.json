@@ -1,0 +1,14 @@
+{
+  "description": "在手表上连接并控制 OpenCode 智能编程助手（对接 OpenCode V2 HTTP API）。支持查看与切换会话、浏览对话与工具调用记录、审批或拒绝权限请求、发送指令、切换主 Agent 以及在任务完成或需审批时向宿主发送通知提醒。",
+  "category": "utility",
+  "icon": "icon.png",
+  "keywords": [
+    "OpenCode",
+    "AI",
+    "编程",
+    "Agent",
+    "远程控制",
+    "终端"
+  ],
+  "notes": "1.0.1：适配 HydroLink 1.3.0 扁平渲染引擎，支持会话列表、对话流懒加载、工具调用折叠展开、权限审批与 Agent 切换。"
+}

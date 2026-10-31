@@ -1,7 +1,36 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-03T14:56:12Z",
+  "generated_at": "2026-10-31T15:10:06Z",
   "plugins": [
+    {
+      "id": "com.float11.opencode.ctrl",
+      "name": "OpenCode",
+      "author": "float11",
+      "version": "1.0.1",
+      "runtime": "js",
+      "entry": "server.js",
+      "min_hydrolink": "1.3.0",
+      "permissions": [
+        "storage",
+        "fetch",
+        "notify"
+      ],
+      "description": "在手表上连接并控制 OpenCode（对接 OpenCode V2）。支持查看与切换会话、浏览对话与工具调用记录、审批或拒绝权限请求、发送指令、切换主 Agent 以及在任务完成或需审批时向宿主发送通知提醒。",
+      "category": "utility",
+      "icon": "plugins/com.float11.opencode.ctrl/1.0.1/icon.png",
+      "url": "plugins/com.float11.opencode.ctrl/1.0.1/com.float11.opencode.ctrl.hpk",
+      "sha256": "8f8f25a9460c17b616dd84a89642e1c378849088b78f267aaf1759577abbf764",
+      "size": 35638,
+      "keywords": [
+        "OpenCode",
+        "AI",
+        "编程",
+        "Agent",
+        "远程控制",
+        "终端"
+      ],
+      "notes": "1.0.1：适配 HydroLink 1.3.0 扁平渲染引擎，支持会话列表、对话流懒加载、工具调用折叠展开、权限审批与 Agent 切换。"
+    },
     {
       "id": "com.float11.tiktok.control",
       "name": "抖音控制器",
@@ -24,6 +53,33 @@
         "遥控"
       ],
       "notes": "1.1.0：移除小部件卡片，专注手表全屏控制器。"
+    },
+    {
+      "id": "com.hydro.bili",
+      "name": "HydroBili",
+      "author": "HydroLink",
+      "version": "0.1.3",
+      "runtime": "js",
+      "entry": "server.js",
+      "min_hydrolink": "1.3.0",
+      "permissions": [
+        "storage",
+        "fetch"
+      ],
+      "description": "在手表上浏览哔哩哔哩（B站）首页推荐流与视频详情。支持在宿主插件界面扫码登录账号，手表端查看视频封面、标题、UP 主、播放量、弹幕、点赞投币收藏数据与简介，支持一键刷新换一批推荐。",
+      "category": "utility",
+      "icon": "plugins/com.hydro.bili/0.1.3/icon.png",
+      "url": "plugins/com.hydro.bili/0.1.3/com.hydro.bili.hpk",
+      "sha256": "73a3e0efb2929bbccf44ed37df9fc806952bf28a3faf2e3b19782cf1b40154a3",
+      "size": 53129,
+      "keywords": [
+        "B站",
+        "bilibili",
+        "哔哩哔哩",
+        "视频",
+        "推荐"
+      ],
+      "notes": "0.1.3：适配 HydroLink 1.3.0 扁平排版与蓝牙互联图片缓存，支持推荐流浏览与视频详情秒开。"
     },
     {
       "id": "com.hydro.deskbuddy",
