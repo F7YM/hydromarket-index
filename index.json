@@ -1,7 +1,38 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-31T15:10:06Z",
+  "generated_at": "2026-11-01T12:09:56Z",
   "plugins": [
+    {
+      "id": "com.float11.dsh.ctrl",
+      "name": "DeepSeek Harness",
+      "author": "float11",
+      "version": "1.0.1",
+      "runtime": "js",
+      "entry": "server.js",
+      "min_hydrolink": "1.3.0",
+      "permissions": [
+        "storage",
+        "fetch",
+        "notify",
+        "tcp"
+      ],
+      "description": "在手表上连接并控制 DeepSeek Harness 智能编程助手与会话。支持浏览会话列表与对话流、查看工具调用记录、在表端审批危险操作、发送指令与多模态交互，并支持表端实时轮换可用模型。",
+      "category": "utility",
+      "icon": "plugins/com.float11.dsh.ctrl/1.0.1/icon.png",
+      "url": "plugins/com.float11.dsh.ctrl/1.0.1/com.float11.dsh.ctrl.hpk",
+      "sha256": "b63d32755ab10ee18e533428143e0ab06eb38d794022f6cc8d6454ca9bad7022",
+      "size": 43309,
+      "keywords": [
+        "DeepSeek",
+        "DSH",
+        "AI",
+        "编程",
+        "Agent",
+        "远程控制",
+        "终端"
+      ],
+      "notes": "1.0.1：支持从会话投影自动提取当前模型并在表端循环切换可用模型；会话列表分页优化。"
+    },
     {
       "id": "com.float11.opencode.ctrl",
       "name": "OpenCode",
@@ -58,7 +89,7 @@
       "id": "com.hydro.bili",
       "name": "HydroBili",
       "author": "HydroLink",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "runtime": "js",
       "entry": "server.js",
       "min_hydrolink": "1.3.0",
@@ -68,10 +99,10 @@
       ],
       "description": "在手表上浏览哔哩哔哩（B站）首页推荐流与视频详情。支持在宿主插件界面扫码登录账号，手表端查看视频封面、标题、UP 主、播放量、弹幕、点赞投币收藏数据与简介，支持一键刷新换一批推荐。",
       "category": "utility",
-      "icon": "plugins/com.hydro.bili/0.1.3/icon.png",
-      "url": "plugins/com.hydro.bili/0.1.3/com.hydro.bili.hpk",
-      "sha256": "73a3e0efb2929bbccf44ed37df9fc806952bf28a3faf2e3b19782cf1b40154a3",
-      "size": 53129,
+      "icon": "plugins/com.hydro.bili/0.1.4/icon.png",
+      "url": "plugins/com.hydro.bili/0.1.4/com.hydro.bili.hpk",
+      "sha256": "3392d0cbd03961cc89c02516fb95d979f5d50f717048e1c20d3557eb1a3e566b",
+      "size": 52455,
       "keywords": [
         "B站",
         "bilibili",
@@ -79,7 +110,7 @@
         "视频",
         "推荐"
       ],
-      "notes": "0.1.3：适配 HydroLink 1.3.0 扁平排版与蓝牙互联图片缓存，支持推荐流浏览与视频详情秒开。"
+      "notes": "0.1.4：更换全新 HydroBili 应用图标，优化版本兼容性。"
     },
     {
       "id": "com.hydro.deskbuddy",
