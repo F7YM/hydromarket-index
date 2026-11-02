@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-01T12:09:56Z",
+  "generated_at": "2026-11-02T21:30:10Z",
   "plugins": [
     {
       "id": "com.float11.dsh.ctrl",
@@ -172,8 +172,8 @@
     {
       "id": "com.sunpm.wakeol",
       "name": "WakeOnLine",
-      "author": "@云里是个太阳",
-      "version": "0.4.0",
+      "author": "云里是个太阳",
+      "version": "1.0.0",
       "runtime": "js",
       "entry": "server.js",
       "min_hydrolink": "1.0.0",
@@ -182,12 +182,12 @@
         "wol",
         "udp"
       ],
-      "description": "手表上点一下就把电脑开机。魔术包由 HydroKit 的 wol 接口直接发出（插件权限里的 wol 就是它），不用装 Termux、不用中继。插件里只需填「名字 + MAC」，想在手表中看到在线状态再填「目标 IP」。手表卡片上每台电脑一行：●在线 / ○离线 徽标 + 名字 + 唤醒按钮；App 页有逐台「唤醒 / 检测」和「全部检测」。在线探测优先走 ICMP，目标挡 ICMP 时可填一个 TCP 端口（22 / 3389）走握手，判定更准；唤醒后 45 秒自动复检，不会出现「刚点完就显示离线」。权限只有 storage + wol + udp（都是本地能力）。",
+      "description": "手表上点一下，把局域网里的电脑开机。魔术包走 HydroKit 自带的 wol 接口，电脑端不用装任何东西。手表卡片每台电脑一行，带在线状态和唤醒按钮；App 里先是设备列表，点进去是单台页面，有大圆按钮 / 横卡 / 极简三种样式，随时能换。在线状态自动检测，间隔可以在电脑端调，也能关掉。",
       "category": "utility",
-      "icon": "plugins/com.sunpm.wakeol/0.4.0/icon.png",
-      "url": "plugins/com.sunpm.wakeol/0.4.0/com.sunpm.wakeol.hpk",
-      "sha256": "7421c5f670c4247e64ead5e329fd3530091ebb3e365a22fefa666483077e3fd5",
-      "size": 22206,
+      "icon": "plugins/com.sunpm.wakeol/1.0.0/icon.png",
+      "url": "plugins/com.sunpm.wakeol/1.0.0/com.sunpm.wakeol.hpk",
+      "sha256": "374de60c6c1dfdec6c0759a841a126383cb58912a987edc15ddaa8d16e99650e",
+      "size": 24899,
       "homepage": "https://float11.gitbook.io/hydrokit",
       "keywords": [
         "网络唤醒",
@@ -197,7 +197,7 @@
         "魔术包",
         "局域网"
       ],
-      "notes": "0.4.0：改用 HydroKit 官方 wol 接口，不再需要中转——删掉了 Termux 中继脚本和一键安装命令，装上就能用。手表点一下就把电脑开机，魔术包由宿主自己发，电脑关着的时候也能唤醒它。支持多台目标、自定义广播地址与 WoL 端口；在线探测 ICMP 优先、也可指定 TCP 端口走握手；唤醒后自动复检延迟可调（默认 45 秒）。安卓宿主若缺 CHANGE_WIFI_MULTICAST_STATE 权限，插件会自动改用 UDP 直发兜底。包名统一改成全小写 com.sunpm.wakeol。"
+      "notes": "1.0.0：App 页做成「设备列表 → 单台」两级，列表每行有「唤醒」和「›」两个按钮，点 › 进详情；单台页有三种样式（大圆按钮 / 横卡 / 极简），在电脑端插件界面里选。在线检测改成自动，间隔 5/10/15/30 秒或关，默认 30 秒。选中设备按 MAC 记忆，刷新不会跳走。卡片上的唤醒按钮改成低调小胶囊。手环端按 vela 的 480 宽设计坐标系排版。注意：切换样式后手表端要自己算界面，约 10 秒才变过来。"
     }
   ]
 }
