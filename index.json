@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-01T12:09:56Z",
+  "generated_at": "2026-11-02T21:30:10Z",
   "plugins": [
     {
       "id": "com.float11.dsh.ctrl",
@@ -142,8 +142,8 @@
     {
       "id": "com.hydro.musicfox",
       "name": "MusicFox 歌词",
-      "author": "@云里是个太阳",
-      "version": "0.8.0",
+      "author": "云里是个太阳",
+      "version": "1.0.0",
       "runtime": "js",
       "entry": "server.js",
       "min_hydrolink": "1.0.0",
@@ -152,22 +152,21 @@
         "music",
         "commands"
       ],
-      "description": "手表「设备信息页 → 组件卡片」里的歌词卡：第一行居中显示歌名和歌手（一行放不下就自动换行、每行居中），中间是当前歌词和上下各两行（超长换行不省略），最下一横是只显示的进度条。歌词与进度取自 Fedora KDE 的系统媒体组件（MPRIS），需要先在宿主里配一条 playerctl 命令；字号、颜色、行数、提前量都能在电脑端的插件界面里调。",
+      "description": "手表上看 MusicFox 的歌词：卡片里是歌名 + 当前句 + 上下几句 + 进度条，App 里是整屏歌词加播放控制。歌词从 MusicFox 的 MPRIS 会话一次读完，按时间轴自己推进，不用电脑端一直对着跑。圆屏按安全区排版，方屏按实际分辨率铺满，字色和行数都能在电脑端改。",
       "category": "utility",
-      "icon": "plugins/com.hydro.musicfox/0.8.0/logo.png",
-      "url": "plugins/com.hydro.musicfox/0.8.0/com.hydro.musicfox.hpk",
-      "sha256": "0ee7d3a00f5fd10be73a491b110e0e02db9c279ebb97d577cea3ae306a3042fa",
-      "size": 17807,
+      "icon": "plugins/com.hydro.musicfox/1.0.0/logo.png",
+      "url": "plugins/com.hydro.musicfox/1.0.0/com.hydro.musicfox.hpk",
+      "sha256": "1cc7f7a4ff238b8734674de6733788518e7e6edd4c237152119b3660a35af591",
+      "size": 18791,
       "homepage": "https://float11.gitbook.io/hydrokit",
       "keywords": [
         "歌词",
-        "音乐",
         "MusicFox",
-        "MPRIS",
-        "playerctl",
-        "手表歌词"
+        "音乐",
+        "桌面卡片",
+        "MPRIS"
       ],
-      "notes": "首个上架版本：卡片式歌词（当前行 + 上下各两行；字号/颜色/行数可调）+ 居中的歌名·歌手（自适应宽度，一行放不下自动换行）+ 底部按屏宽自适应的方块进度条；支持毫秒级「提前显示」校准链路延迟；兼容 deskclock 那条老命令；已在小米手环 336×480 与桌面宿主上实测。"
+      "notes": "1.0.0：启动器里的 App 从「插件信息页」改成整屏歌词——歌名/歌手、当前句高亮、上下几句、上一首/播放/下一首，落款只有一个「MusicFox 歌词 · 云里是个太阳」。删掉了同步配置和开发人员两个大按钮。圆屏开始真正按安全区排版（左右 42、底部只留一点余量，剩下的空间用行距摊开），方屏按实际分辨率铺满；所有文字居中，长句两头一起收不会往一边溢出。底色改成纯黑。歌词延迟属于传输 + 手表端推算的天然延迟，在电脑端插件页面调「提前显示」即可。Windows 上目前读不到歌词，界面会直接说明而不是报错。"
     },
     {
       "id": "com.sunpm.wakeol",
