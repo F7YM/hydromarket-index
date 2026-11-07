@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-01T12:09:56Z",
+  "generated_at": "2026-11-02T21:30:10Z",
   "plugins": [
     {
       "id": "com.float11.dsh.ctrl",
@@ -168,6 +168,35 @@
         "手表歌词"
       ],
       "notes": "首个上架版本：卡片式歌词（当前行 + 上下各两行；字号/颜色/行数可调）+ 居中的歌名·歌手（自适应宽度，一行放不下自动换行）+ 底部按屏宽自适应的方块进度条；支持毫秒级「提前显示」校准链路延迟；兼容 deskclock 那条老命令；已在小米手环 336×480 与桌面宿主上实测。"
+    },
+    {
+      "id": "com.sunpm.remote.terminal",
+      "name": "远程终端",
+      "author": "云里是个太阳",
+      "version": "1.0.0",
+      "runtime": "js",
+      "entry": "server.js",
+      "min_hydrolink": "1.0.0",
+      "permissions": [
+        "storage",
+        "ssh"
+      ],
+      "description": "手表和手环上连一台机器的 SSH，看输出、敲命令。连接走 HydroKit 内置的 ssh 接口，电脑上什么都不用装；认证支持私钥文件、私钥内容、密码三种。手表卡片只显示是否已连上；App 页上半屏是终端（点一下翻历史，翻到头再点回最新），下面是输入框和 Ctrl+C / Tab / 方向键快捷键。圆屏按 vela 安全区留边、自动避开圆弧，方屏按实际分辨率铺满。SSH 不通时还能用网关方式兜底。",
+      "category": "utility",
+      "icon": "plugins/com.sunpm.remote.terminal/1.0.0/icon.png",
+      "url": "plugins/com.sunpm.remote.terminal/1.0.0/com.sunpm.remote.terminal.hpk",
+      "sha256": "5052a5b3665e6698c67158b1281bda251c8b3bca0c7412ba9f5491105769364b",
+      "size": 22269,
+      "homepage": "https://float11.gitbook.io/hydrokit",
+      "keywords": [
+        "SSH",
+        "终端",
+        "远程",
+        "命令行",
+        "服务器",
+        "手表"
+      ],
+      "notes": "1.0.0：直接走宿主内置的 SSH，电脑端零安装。手表卡片只显示连接状态；App 页把终端铺满，留输入框和自定义快捷键；圆屏按 vela 安全区留边（左右 42、底部 120），方屏铺满。这版修了卡片状态不准的问题——宿主那边会话已经结束（重启、被回收）时，手表还显示「已连接」；现在每帧都跟宿主的会话表核对，对不上就显示「已断开」。"
     },
     {
       "id": "com.sunpm.wakeol",
